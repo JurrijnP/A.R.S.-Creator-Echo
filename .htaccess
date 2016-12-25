@@ -1,0 +1,27 @@
+<IfModule mod_rewrite.c>
+# Turn Rewrite Engine On
+	RewriteEngine on
+	RewriteBase /
+	
+Options +MultiViews
+RewriteEngine On
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteRule ^([^\.]+)$ $1.html [NC,L]
+
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteRule ^([^\.]+)$ $1.php [NC,L]
+
+RewriteEngine On
+RewriteCond %{THE_REQUEST} ^[A-Z]{3,9}\ /A.R.S.-Creator-Echo/(.*).php\ HTTP/
+RewriteRule .* http://77.174.91.55/%1 [R=301,L]
+
+RewriteCond %{THE_REQUEST} ^[A-Z]{3,9}\ /html/(.*)\ HTTP/
+RewriteRule .* %1.html [L]
+
+RewriteRule 		^css/$ 							-					[F,L,NC]
+RewriteRule 		^pictures/$ 					-					[F,L,NC]
+RewriteRule 		^js/$ 							-					[F,L,NC]
+
+</IfModule>
