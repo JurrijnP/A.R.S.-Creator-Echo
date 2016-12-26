@@ -9,8 +9,8 @@ body {
 	background:url("http://77.174.91.55/images/stripe.png") repeat;
 }
 
-.bgclr {
-    background-color: #154265 20%;
+.background {
+    background-color: rgba(21, 66, 101, 1) 20%;
     background-image: radial-gradient(farthest-side ellipse at 10% 0, rgba(21, 66, 101, 0.7) 20%, rgba(115, 146, 194, 0.6));
     background-image: -webkit-radial-gradient(farthest-side ellipse at 10% 0, rgba(21, 66, 101, 0.7) 20%, rgba(115, 146, 194, 0.6));
     background-image: -moz-radial-gradient(10% 0, farthest-side ellipse, #154265 20%, #7392c2);
@@ -20,14 +20,14 @@ body {
 	min-height: 100%;
 }
 
-#page-wrap {
+.content {
 	border-radius: 15px;
 	width: 720px;
 	min-width: 700px;
-	background: rgba(51,51,51,0.4);
+	background: rgba(51,51,51,0.6);
 	padding: 20px 50px 20px 50px;
 	margin: 50px auto;
-	height: 400px;
+	height: 350px;
 	z-index:10000;
 }
 
@@ -35,7 +35,7 @@ body {
 	text-align: center;
 	font-size: 60px;
 	font-weight: 100;
-	color: rgba(255, 255, 255, 1)
+	color: rgba(255, 255, 255, 1);
 }
 
 .text {

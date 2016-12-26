@@ -1,16 +1,15 @@
 <!DOCTYPE html>
 <html lang=en_US>
 	<head>
-		<title>No Access!</title>
-		<link href="css/403.css" type="text/css" rel="stylesheet">
+		<title>Well...</title>
+		<link href="css/errors.css" type="text/css" rel="stylesheet">
 		<link rel="icon" href="https://cdn.discordapp.com/app-icons/249891250117804032/8006c62af129d35355732de574da495c.jpg" type="image/x-icon">
 		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 	</head>
-	
 	<body>
-		<div class="bgclr">
-			<div id="page-wrap">
-				<h1 class="title">Not so fast.</h1>
+		<div class="background">
+			<div class="content">
+				<h1 class="title">Not so fast my friend.</h1>
 				<h1 class="title">ಠ╭╮ಠ</h1>
 			<br>
 			<br>
@@ -26,5 +25,4 @@
 			</div>
 		</div>
 	</body>
-	
 </html>
