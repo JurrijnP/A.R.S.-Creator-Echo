@@ -9,16 +9,17 @@
 	
 	<body>
 		<?php
-			include 'php/creator.php'
+			include 'php/creator.php';
+			include 'php/params.php';
 		?>
 		<div class="content">
 			<h1>
 				A.R.S. Creator for Echo Discord bot.
 			</h1>
 		<form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">
-			<label for="pref" class="bold">Your Prefix*: <input class="prefix bold" type="text" name="pref" id="pref" placeholder="." maxlength="3" value="<?php echo $pref;?>"></label><?php echo $prefEmp?>
-			<label for="Tname" class="bold">Trigger name*: <input class="bold" type="text" name="Tname" id="Tname" placeholder="Trigger name" value="<?php echo $Tname;?>"></label><?php echo $TnameEmp?>
-			<input type="submit" name="submit" value="Submit">
+			<label for="pref" class="bold">Your Prefix*: <input class="prefix bold input" type="text" name="pref" id="pref" placeholder="." maxlength="3" value="<?php echo $pref;?>"></label><label class="VarError"><?php echo $prefEmp?></label>
+			<label for="Tname" class="bold">Trigger name*: <input class="input" type="text" name="Tname" id="Tname" placeholder="Trigger name" value="<?php echo $Tname;?>"></label><label class="VarError"><?php echo $TnameEmp?></label>
+			<input class="MkARS" type="submit" name="submit" value="Make it!">
 		</form>
 		<br>
 		<label>Your Echo command:</label><textarea class="output" rows="10" cols="50" readonly>
