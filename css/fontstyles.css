@@ -2,6 +2,10 @@
 	font-weight: bold;
 }
 
+.skipbold {
+	font-weight: normal !important;
+}
+
 .underline {
 	text-decoration: underline;
 }
