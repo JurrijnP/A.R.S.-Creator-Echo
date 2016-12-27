@@ -27,16 +27,16 @@
 	<body>
 	<?php
 		include 'php/creator.php';
-		$AddParamsKey = "False";
 	?>
-	
+	<form id="Requirements" method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">
 		<div id="KeyList" style="display: none;">
 			<div class="KeyListContent">
 				<h1>
 					Pick a Key.
 				</h1>
-				<button class="KeysButtonContent" onclick="CloseKeyDiv(); return false;">Close ⨉</button>
-				<input type="button" onload="<?php echo $AddParamsKey = "False";?>" onclick="<?php echo $AddParamsKey; ?>"/>
+				<button class="buttonkeyscontent" onclick="CloseKeyDiv(); return false;">Close ⨉</button>
+				<input type="hidden" name="AddParamsKeyCheck" <?php echo $EnabledOrDisabled;?> value="True"/>
+				<input type="button" class="button" onclick="CloseKeyDiv();" <?php echo AddParamsKey();?> <?php echo $EnabledOrDisabled;?> value="Add Key"/>
 			</div>
 		</div>
 		<div id="Content" class="content" style="opacity: 1;">
@@ -44,18 +44,18 @@
 				A.R.S. Creator for Echo Discord bot.
 			</h1>			
 		<div>
-		<form id="Requirements" method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">
+		
 			<input type="hidden" name="Requirements" id="Requirements" value="Test">
 			<label for="PrefixBeingUsed" class="bold">Your Prefix<label class="ReqTip">*<div class="ReqTipText">This field is required.</div></label>: <input class="prefix bold input" type="text" name="PrefixBeingUsed" id="PrefixBeingUsed" placeholder="." maxlength="3" value="<?php echo $PrefixBeingUsed;?>"></label><label class="VarError"><?php echo $PrefixBeingUsedEmpty?></label>
 			<label for="SetTriggerName" class="bold">Trigger name<label class="ReqTip">*<span class="ReqTipText">This field is required.</span></label>: <input class="input" type="text" name="SetTriggerName" id="SetTriggerName" placeholder="Trigger name" value="<?php echo $SetTriggerName;?>"></label><label class="VarError"><?php echo $SetTriggerNameEmpty?></label>
 			<label for="CheckPar" class="bold EnablePar"><input class="EnableParBox" type="checkbox" name="CheckPar" id="CheckPar" value="UseParams" <?php if(isset($_POST['CheckPar'])) echo "checked='checked'"; ?>/><label class="ReqTip">!<span class="ReqTipTextBig">If enabled, <label class="DCSL skipbold">{params}</label> is required in your response. If <label class="DCSL skipbold">{params}</label> isn't found it will be automatically be added at the beginning of the response.</label></span> Enable <label class="DCSL skipbold">{params}</label> in your trigger.</label>
 		<br>
 		<br>
-			<input class="MkARS" type="submit" name="submit" value="Make it!" form="Requirements"/>
+			<input class="MkARS button" type="submit" name="submit" value="Make it!" form="Requirements"/>
 		</div>
 		<div class="Keys">
 			<label class="bold">Used Keys:</label>
-			<button class="KeysButton" onclick="KeyDiv(); return false;">Add a Key</button>
+			<button class="button" onclick="KeyDiv(); return false;">Add a Key</button>
 			<div id="Key1" class="Key1"><?php echo $KeyText; ?></div>
 		</div>
 		<div class="outputdiv">
@@ -66,7 +66,8 @@ echo $Output;
 ?>
 </textarea>
 		</div>
-		</div>
+		<button>Reset<label class="ReqTip">*<span class="ReqTipText bold">Reset on your own risk!</span></label></button>
+	</div>
 	</form>
 	</body>
 </html>

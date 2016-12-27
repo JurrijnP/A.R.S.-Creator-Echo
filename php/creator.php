@@ -4,13 +4,20 @@
 	$PrefixBeingUsedEmpty = $SetTriggerNameEmpty = "";
 	$TriggerOutput = $ResponseOutput =  "";
 	$IsParEnabled = $UseParams = "";
-	$AddParamsKeyCheck = "False";
 	$KeyText = "";
+	$_POST['AddParamsKeyCheck'] = "False";
+	$EnabledOrDisabled = "disabled";
+	$Dummy = "";
+	
+	function AddParamsKey () {
+		$_POST['AddParamsKeyCheck'] = "True";
+	}
 	
 	if ($_SERVER["REQUEST_METHOD"] == "POST") {
-		if (isset($_POST['CheckPar']) AND $_POST['CheckPar']==='UseParams') {
+		if (isset($_POST['CheckPar']) AND $_POST['CheckPar']=='UseParams') {
 			$IsParEnabled = "&";
 			$UseParams = " {params}";
+			$AddParamsKeyCheck = "False";
 		} else {
 			$IsParEnabled = "";
 			$UseParams = "";
@@ -29,17 +36,26 @@
 			$SetTriggerName = $_POST["SetTriggerName"];
 			$PrefixBeingUsedEmpty = " A prefix is required.";
 			$TriggerOutput="";
-		} else {
+		} elseif ($Dummy == "") {
 			$PrefixBeingUsed = $_POST["PrefixBeingUsed"];
 			$SetTriggerName = $_POST["SetTriggerName"];
 			$TriggerOutput = $PrefixBeingUsed . "auto " . $IsParEnabled . $SetTriggerName . $UseParams . "=";
 			$ResponseOuput = "Output";
-		}
-		if ($AddParamsKeyCheck = "True") {
-			$ResponseOutput = $Params;
+			$EnabledOrDisabled = "enabled";
+		} elseif (isset($_POST['CheckPar']) AND $_POST['CheckPar']=='UseParams' AND $EnabledOrDisabled = "enabled") {
+			if ($_POST['AddParamsKeyCheck'] == "True" AND $TriggerOutput !== "") {
+				$PrefixBeingUsed = $_POST["PrefixBeingUsed"];
+				$SetTriggerName = $_POST["SetTriggerName"];
+				$TriggerOutput = $PrefixBeingUsed . "auto " . $IsParEnabled . $SetTriggerName . $UseParams . "=";
+				$EnabledOrDisabled = "enabled";
+				$ResponseOutput = $Params;
+			} else {
+			$ResponseOutput = "Output";
+			}
 		} else {
-			$ResponseOutput = "";
+			$Params = "";
 		}
-	} 
+	}
+	
 	$Output=$TriggerOutput . $ResponseOutput;
 ?>
