@@ -94,7 +94,7 @@ html, body {
 	transition: all 1s;
 }
 
-.KeysButton {
+.button {
 	float: right;
 	-webkit-appearance: none;
 	background-color: rgba(78, 145, 206, 1);
@@ -109,7 +109,7 @@ html, body {
 	transition: background-color, border-color 0.3s;
 }
 
-.KeysButtonContent {
+.buttonkeyscontent {
 	right: 30px;
 	top: 30px;
 	-webkit-appearance: none;
@@ -125,7 +125,7 @@ html, body {
 	transition: background-color, border-color 0.3s;
 }
 
-.KeysButton:hover, .KeysButtonContent:hover {
+.button:hover, .buttonkeyscontent:hover {
 	color: rgba(255, 255, 255, 1);
 	background-color: #3378b6;
 	border-color: #2b659b;
