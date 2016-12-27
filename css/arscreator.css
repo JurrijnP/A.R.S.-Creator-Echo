@@ -49,7 +49,86 @@ html, body {
 	height: auto !important;
 	min-height: calc(100% - 10%);
 	z-index:10000;
-	position: initial;
+	position: absolute;
+	left: 5%;
+}
+
+.outputdiv {
+	border-radius: 10px;
+	width: 90%;
+	min-width: 90%;
+	background: rgba(51,51,51,0.5);
+	margin: 50px 0px;
+	padding: 10px 0 0 10px;
+	position: absolute;
+	bottom: 0;
+}
+
+.Keys {
+	border-radius: 10px;
+	width: 40%;
+	min-width: 40%;
+	background: rgba(51,51,51,0.5);
+	padding: 10px 10px 10px 10px;
+	margin: 10px 10px 50px 0px;
+	height: auto !important;
+	min-height: 20%;
+	z-index:10000;
+	position: relative;
+	float: left;
+	text-align: left;
+}
+
+.KeyListContent {
+	border-radius: 10px;
+	width: 70%;
+	min-width: 70%;
+	background: rgba(51,51,51,0.5);
+	padding: 20px 50px 20px 50px;
+	margin: 50px auto;
+	height: auto !important;
+	min-height: calc(100% - 10%);
+	z-index:100000;
+	position: absolute;
+	left: 15%;
+	transition: all 1s;
+}
+
+.KeysButton {
+	float: right;
+	-webkit-appearance: none;
+	background-color: rgba(78, 145, 206, 1);
+	border: 1px solid rgba(78, 145, 206, 1);
+	color: rgba(248, 248, 248 ,1);
+	box-shadow: 0 1px 2px rgba(0,0,0,0.05), inset 0px -15px 10px -12px rgba(0,0,0,0.05);
+	padding: 3px;
+	margin-bottom: -3px;
+	border-radius: 3px;
+	display: inline-block;
+	position: relative;
+	transition: background-color, border-color 0.3s;
+}
+
+.KeysButtonContent {
+	right: 30px;
+	top: 30px;
+	-webkit-appearance: none;
+	background-color: rgba(78, 145, 206, 1);
+	border: 1px solid rgba(78, 145, 206, 1);
+	color: rgba(248, 248, 248 ,1);
+	box-shadow: 0 1px 2px rgba(0,0,0,0.05), inset 0px -15px 10px -12px rgba(0,0,0,0.05);
+	padding: 3px;
+	margin-bottom: -3px;
+	border-radius: 3px;
+	display: inline-block;
+	position: inherit;
+	transition: background-color, border-color 0.3s;
+}
+
+.KeysButton:hover, .KeysButtonContent:hover {
+	color: rgba(255, 255, 255, 1);
+	background-color: #3378b6;
+	border-color: #2b659b;
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -86,17 +165,33 @@ h1, h2, h3, h4, h5, h6 {
 	margin-bottom: 3px;
 }
 
-.ReqTip .ReqTipText {
+.ReqTipTextBig {
+	visibility: hidden;
+    width: 400px;
+    background-color: rgba(0, 0, 0, 1);
+    color: #fff;
+    text-align: center;
+    padding: 3px 0;
+    border-radius: 6px;
+	position: absolute;
+    z-index: 1;
+	bottom: 100%;
+	left: 50%;
+	margin-left: -200px;
+	margin-bottom: 3px;
+}
+
+.ReqTip .ReqTipText, .ReqTip .ReqTipTextBig {
 	opacity: 0;
 	transition: opacity 0.3s;
 }
 
-.ReqTip:hover .ReqTipText {
+.ReqTip:hover .ReqTipText, .ReqTip:hover .ReqTipTextBig {
 	visibility: visible;
 	opacity: 1;
 }
 
-.ReqTip .ReqTipText::after {
+.ReqTip .ReqTipText::after, .ReqTip .ReqTipTextBig::after {
 	content: "";
 	position: absolute;
 	top: 100%;
@@ -124,11 +219,13 @@ h1, h2, h3, h4, h5, h6 {
 
 .output {
 	border-radius: 5px;
-	resize: vertical;
-	width: 100% !important;
+	resize: none;
+	width: calc(100% - 10px) !important;
 	background-color: rgba(51,51,51,0.5);
 	color: rgba(248, 248, 248, 1);
 	border: none;
+	margin: 0 10px 10px 0;
+	position: initial;
 }
 
 .EnablePar {
@@ -169,4 +266,8 @@ h1, h2, h3, h4, h5, h6 {
 
 .MkARS {
 	float: right;
+}
+
+.Keyparams {
+	background-color: red;
 }

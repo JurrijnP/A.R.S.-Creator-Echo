@@ -1,34 +1,45 @@
 <?php
-	$pref = $Tname = "";
-	$prefEmp = $TnameEmp = "";
-	$output = "";
-	$IsParEnabled = "";
-			
+	include 'php/keys.php';
+	$PrefixBeingUsed = $SetTriggerName = "";
+	$PrefixBeingUsedEmpty = $SetTriggerNameEmpty = "";
+	$TriggerOutput = $ResponseOutput =  "";
+	$IsParEnabled = $UseParams = "";
+	$AddParamsKeyCheck = "False";
+	$KeyText = "";
+	
 	if ($_SERVER["REQUEST_METHOD"] == "POST") {
-		if(isset($_POST['CheckPar']) && $_POST['CheckPar']==='UseParams') {
+		if (isset($_POST['CheckPar']) AND $_POST['CheckPar']==='UseParams') {
 			$IsParEnabled = "&";
 			$UseParams = " {params}";
 		} else {
 			$IsParEnabled = "";
 			$UseParams = "";
 		}
-		if (empty($_POST["Tname"]) AND empty($_POST["pref"])) {
-			$TnameEmp = " You need to give your trigger a name.";
-			$prefEmp = " A prefix is required.";
-			$output="";
-		} elseif (empty($_POST["Tname"])) {
-			$pref = $_POST["pref"];
-			$TnameEmp = " You need to give your trigger a name.";
-			$output="";
-		} elseif (empty($_POST["pref"])) {
-			$Tname = $_POST["Tname"];
-			$prefEmp = " A prefix is required.";
-			$output="";
+		if (empty($_POST["SetTriggerName"]) AND empty($_POST["PrefixBeingUsed"])) {
+			$SetTriggerNameEmpty = " You need to give your trigger a name.";
+			$PrefixBeingUsedEmpty = " A prefix is required.";
+			$TriggerOutput= "";
+			$ResponseOuput = "";
+		} elseif (empty($_POST["SetTriggerName"])) {
+			$PrefixBeingUsed = $_POST["PrefixBeingUsed"];
+			$SetTriggerNameEmpty = " You need to give your trigger a name.";
+			$TriggerOutput = "";
+			$ResponseOuput = "";
+		} elseif (empty($_POST["PrefixBeingUsed"])) {
+			$SetTriggerName = $_POST["SetTriggerName"];
+			$PrefixBeingUsedEmpty = " A prefix is required.";
+			$TriggerOutput="";
 		} else {
-			$pref = $_POST["pref"];
-			$Tname = $_POST["Tname"];
-			$output = $pref . "auto " . $IsParEnabled . $Tname . $UseParams . "=";
-		}		
-		
-	}
+			$PrefixBeingUsed = $_POST["PrefixBeingUsed"];
+			$SetTriggerName = $_POST["SetTriggerName"];
+			$TriggerOutput = $PrefixBeingUsed . "auto " . $IsParEnabled . $SetTriggerName . $UseParams . "=";
+			$ResponseOuput = "Output";
+		}
+		if ($AddParamsKeyCheck = "True") {
+			$ResponseOutput = $Params;
+		} else {
+			$ResponseOutput = "";
+		}
+	} 
+	$Output=$TriggerOutput . $ResponseOutput;
 ?>
