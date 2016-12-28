@@ -27,6 +27,12 @@
 	<body>
 	<?php
 		include 'php/creator.php';
+		$_REQUEST['AddParamsKeyCheck'] = "False";
+		function AddParamsKey () {
+			if (isset($_POST['AddParamsKey'])) {
+				$_REQUEST['AddParamsKeyCheck'] = "True";
+			}
+		}
 	?>
 	<form id="Requirements" method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">
 		<div id="KeyList" style="display: none;">
@@ -36,7 +42,11 @@
 				</h1>
 				<button class="buttonkeyscontent" onclick="CloseKeyDiv(); return false;">Close ⨉</button>
 				<input type="hidden" name="AddParamsKeyCheck" <?php echo $EnabledOrDisabled;?> value="True"/>
-				<input type="button" class="button" onclick="CloseKeyDiv();" <?php echo AddParamsKey();?> <?php echo $EnabledOrDisabled;?> value="Add Key"/>
+				<div class="keycontent">
+					<div class="keycontent1">
+					<label>Add a <label class="DCSL skipbold">{params}</label> key.</label><input type="submit" class="button" name="AddParamsKey" onclick="CloseKeyDiv(); <?php echo AddParamsKey();?>" <?php echo $EnabledOrDisabled;?> value="Add Key"/>
+					</div>
+				</div>
 			</div>
 		</div>
 		<div id="Content" class="content" style="opacity: 1;">
@@ -60,14 +70,13 @@
 		</div>
 		<div class="outputdiv">
 		<label class="bold">Your Echo command:</label>
-		<textarea class="output" rows="10" cols="50" readonly>
+		<textarea class="output" rows="10" cols="50" readonly placeholder="You A.R.S. Trigger will be posted here...">
 <?php
 echo $Output;
 ?>
 </textarea>
 		</div>
-		<button>Reset<label class="ReqTip">*<span class="ReqTipText bold">Reset on your own risk!</span></label></button>
-	</div>
+		</div>
 	</form>
 	</body>
 </html>
