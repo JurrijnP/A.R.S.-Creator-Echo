@@ -1,5 +1,4 @@
-﻿<!DOCTYPE html>
-<html>
+﻿<html>
 	<head>
 		<title>A.R.S. Echo Creator</title>
 		<link rel="icon" href="https://cdn.discordapp.com/app-icons/249891250117804032/8006c62af129d35355732de574da495c.jpg" type="image/x-icon">
@@ -28,14 +27,14 @@
 	<?php
 		include 'php/creator.php';
 		$_REQUEST['AddParamsKeyCheck'] = "False";
-		function AddParamsKey () {
+		function AddParamsKeyCheck () {
 			if (isset($_POST['AddParamsKey'])) {
 				$_REQUEST['AddParamsKeyCheck'] = "True";
 			}
 		}
 	?>
 	<form id="Requirements" method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">
-		<div id="KeyList" style="display: none;">
+		<div id="KeyList" style="display: none;" >
 			<div class="KeyListContent">
 				<h1>
 					Pick a Key.
@@ -44,7 +43,7 @@
 				<input type="hidden" name="AddParamsKeyCheck" <?php echo $EnabledOrDisabled;?> value="True"/>
 				<div class="keycontent">
 					<div class="keycontent1">
-					<label>Add a <label class="DCSL skipbold">{params}</label> key.</label><input type="submit" class="button" name="AddParamsKey" onclick="CloseKeyDiv(); <?php echo AddParamsKey();?>" <?php echo $EnabledOrDisabled;?> value="Add Key"/>
+					<label>Add a <label class="DCSL skipbold">{params}</label> key.</label><input type="submit" class="button" name="AddParamsKey" onclick="CloseKeyDiv(); <?php echo AddParamsKeyCheck();?>" <?php echo $EnabledOrDisabled;?> value="Add Key"/>
 					</div>
 				</div>
 			</div>
@@ -61,7 +60,7 @@
 			<label for="CheckPar" class="bold EnablePar"><input class="EnableParBox" type="checkbox" name="CheckPar" id="CheckPar" value="UseParams" <?php if(isset($_POST['CheckPar'])) echo "checked='checked'"; ?>/><label class="ReqTip">!<span class="ReqTipTextBig">If enabled, <label class="DCSL skipbold">{params}</label> is required in your response. If <label class="DCSL skipbold">{params}</label> isn't found it will be automatically be added at the beginning of the response.</label></span> Enable <label class="DCSL skipbold">{params}</label> in your trigger.</label>
 		<br>
 		<br>
-			<input class="MkARS button" type="submit" name="submit" value="Make it!" form="Requirements"/>
+			<input class="MkARS button" type="submit" name="submit" value="Make it!" form="Requirements" />
 		</div>
 		<div class="Keys">
 			<label class="bold">Used Keys:</label>
