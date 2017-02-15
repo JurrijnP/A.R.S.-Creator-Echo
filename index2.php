@@ -1,4 +1,4 @@
-﻿<html>
+<html>
 	<head>
 		<title>A.R.S. Echo Creator</title>
 		<link rel="icon" href="https://images-ext-1.discordapp.net/eyJ1cmwiOiJodHRwczovL2VjaG8ueHRjbGFicy5uZXQvZmF2aWNvbi5wbmcifQ.e8gkaoxk2ywaxuE7RGln3c2thxA" type="image/x-icon">
@@ -18,18 +18,9 @@
 				<span id="AlertMessage" style="position: absolute; float: left; padding: 0; padding-left: 0; padding-right: 50px; margin: 0;"></span><br><br><br>
 				<button class="button" style="position: absolute; bottom: 13px; right: 10px;" onclick="CloseAlertDiv(); return false;">Ok</button>
 			</div>
-			<div id="Changelogdiv" style="opacity: 0; transition: 1s;">
-				<div id="outerChangelog" class="outerChangelog" style="margin: -500% auto; transition: margin 0.5s; position: absolute;">
-					<button class="buttonkeyscontent" onclick="CheckStyle(); CloseChangelogDiv(); return false;">Close ⨉</button>
-					<h1>
-						Changelog.
-					</h1>
-					<div class="Changelog" id="Changelog" style="background-color: rgba(51, 51, 51, 0.3); border: 2px solid rgba(51, 51, 51, 1); border-radius: 10px; height: auto !important; max-height: calc(80% - 121px);"></div>
-				</div>
-			</div>
 			<div id="KeyList" style="opacity: 0; transition: 1s;" >
 				<div id="KeyListContent" class="KeyListContent" style="margin: -500% auto; transition: margin 0.5s;">
-					<button class="buttonkeyscontent" onclick="CheckStyle(); CloseKeyDiv(); return false;">Close ⨉</button>
+					<button class="buttonkeyscontent" onclick="CloseKeyDiv(); return false;">Close <i class="fa fa-times" aria-hidden="true" style="font-size: 16px;"></i></button>
 					<h1>
 						Pick a Key.
 					</h1>
@@ -219,61 +210,133 @@
 								<span class="bold" style="padding: 3px 0px 3px 0px; margin-bottom: -3px;">Add a <label class="DCSL skipbold">{myperms}</label> key.</span><input type="button" id="AddMyPermsKey" class="addbutton" onclick="AddItem(46);" value="{myperms}" />
 							</div>
 							<br>
-<!--
-							<div class="KeyContentKey">
-								<span class="bold" style="padding: 3px 0px 3px 0px; margin-bottom: -3px;">Add a <label class="DCSL skipbold">{}</label> key.</span><input type="button" id="AddKey" class="addbutton" onclick="AddKey();" value="{}" />
-							</div>
-							<div class="KeyContentKey">
-								<span class="bold" style="padding: 3px 0px 3px 0px; margin-bottom: -3px;">Add a <label class="DCSL skipbold">{}</label> key.</span><input type="button" id="AddKey" class="addbutton" onclick="AddKey();" value="{}" />
-							</div>
-							<div class="KeyContentKey">
-								<span class="bold" style="padding: 3px 0px 3px 0px; margin-bottom: -3px;">Add a <label class="DCSL skipbold">{}</label> key.</span><input type="button" id="AddKey" class="addbutton" onclick="AddKey();" value="{}" />
-							</div>
-							<div class="KeyContentKey">
-								<span class="bold" style="padding: 3px 0px 3px 0px; margin-bottom: -3px;">Add a <label class="DCSL skipbold">{}</label> key.</span><input type="button" id="AddKey" class="addbutton" onclick="AddKey();" value="{}" />
-							</div>
-							<div class="KeyContentKey">
-								<span class="bold" style="padding: 3px 0px 3px 0px; margin-bottom: -3px;">Add a <label class="DCSL skipbold">{}</label> key.</span><input type="button" id="AddKey" class="addbutton" onclick="AddKey();" value="{}" />
-							</div>
--->
-							<br>
 						</div>
 					</div>
 				</div>
 			</div>
 			<!--
-			<div id="AutoAddKeyForType5Div" style="display:none;">
+			<div id="AutoAddItemForType5Div" style="display:none;">
 				<div class="KeyListContent">
 					<h1>
 						Pick a Key.
 					</h1>
-					<button class="buttonkeyscontent" onclick="CloseAutoAddKeyForType5(); return false;">Close ⨉</button>
+					<button class="buttonkeyscontent" onclick="CloseAutoAddItemForType5(); return false;">Close ⨉</button>
 					<div class="keycontent">
-						<div class="keycontent1"><span class="bold">Add a <label class="DCSL skipbold">{params}</label> key in your <label class="DCSL skipbold">{role}</label> key.</span><input type="button" class="addbutton" id="AddKey1ToKey5" onclick="AddKeyToKey5(1);" value="{params}" disabled="true"></input></div><br>
+						<div class="keycontent1"><span class="bold">Add a <label class="DCSL skipbold">{params}</label> key in your <label class="DCSL skipbold">{role}</label> key.</span><input type="button" class="addbutton" id="AddItem1ToKey5" onclick="AddItemToKey5(1);" value="{params}" disabled="true"></input></div><br>
 					</div>
 				</div>
 			</div>
 			-->
-			<!-- Content should ALWAYS be visible -->
-			<div id="Content" class="content" style="opacity: 1; transition: 0.2s; display: block !important; min-height: 80%;">
-				<button class="ClearButton" onclick="CheckStyle(); ClearStorage();">Clear Creator</button>
-				<div id="Log" style="opacity: 0; transition: opacity 1s; height: 0px;">
-					<div id="outerLogContent" class="Log" style="display: none; transition: display 0.5s;">
-						<button class="buttonkeyscontent" onclick="CheckStyle(); CloseLogDiv(); return false;">Close ⨉</button>
-						<h1>
-							Creator Log.
+			<!-- !!! Content should ALWAYS be visible. !!! -->
+			<div id="Content" class="content" style="opacity: 1; transition: 0.2s; display: block !important; min-height: 80%; pointer-events: all;">
+				<div style="display: inline-block; float: right;">
+					<button id="ShowSettingsButton" class="button" style="width: 75px; height: 24px; margin: 0px 0px -24px -75px; display: block;" onclick="ShowSettings(); return false;">Settings <i class="fa fa-cog" aria-hidden="true" style="font-size: 16px;"></i></button>
+					<button id="HideSettingsButton" class="buttonkeyscontent" onclick="HideSettings(); return false;" style="width: 75px; height: 24px; margin: 0px 0px -24px -75px; display: none;">Close <i class="fa fa-times" aria-hidden="true" style="font-size: 16px;"></i></button>
+				</div>
+				<div id="Settings" style="opacity: 0; transition: opacity 1s; height: 0px;">
+					<div id="SettingsContent" style="display: none;">
+						<h1 id="SettingsTitle" style="margin-bottom: calc(1%);">
+							Settings | Options
 						</h1>
-						<div class="LogContent">
-							<div id="LogContent" class="innerLogContent"></div>
+						<ul id="SettingsMenu" class="SettingsMenu">
+							<li>
+								<a id="SettingsOptions" class="MenuButton bold" style="background-color: rgba(78, 145, 206, 1);" onclick="ShowOptions(); return false;">Options</a>
+							</li>
+							<li>
+								<a id="SettingsLog" class="MenuButton bold" style="background-color" onclick="ShowLog();">Log</a>
+							</li>
+							<li>
+								<a id="SettingsChangelog" class="MenuButton bold" style="background-color" onclick="ShowChangelog(); GetChangelog();">Changelog</a>
+							</li>
+							<li>
+								<a id="SettingsTriggers" class="MenuButton bold" style="background-color" onclick="ShowTriggers();">Triggers</a>
+							</li>
+							<li id="SettingsARSLibrary">
+							
+							</li>
+							<li id="SettingsDocumentation" class="Dropdown">
+								<a class="DropdownMenuButton bold" onclick="alert('Documentation');">Documentation</a>
+								<div id="DocumentationDropdown" class="DropdownContent" style="z-index: 10;">
+									<a class="DropdownMenuButton bold" onclick="alert('Testing 1');">Seach Filters</a>
+									<a class="DropdownMenuButton bold" onclick="alert('Testing 2');">Testing 2</a>
+									<a class="DropdownMenuButton bold" onclick="alert('Testing 3');">Testing 3</a>
+									<a class="DropdownMenuButton bold" onclick="alert('Testing 4');">Testing 4</a>
+								</div>
+							</li>
+						</ul>
+						<div id="Options" style="opacity: 1; transition: opacity 1s; height: calc(100% - 70px); margin-top: -10px;">
+							<div id="outerOptionsContent" class="Log" style="display: block; transition: display 0.5s;">
+								<div class="LogContent">
+									<span id="OptionAutocomplete" value="0" style="font-size: 15px;">
+										<i class='fa fa-square-o' aria-hidden='true'></i><span> Disable autocompletion.</span>
+									</span>
+									<br>
+									<span id="OptionAutoSpacing" value="0" style="font-size: 15px;">
+										<i class='fa fa-square-o' aria-hidden='true'></i><span> Disable automatically adding whitespaces.</span>
+									</span>
+								</div>
+							</div>
 						</div>
+						<div id="Log" style="opacity: 0; transition: opacity 1s; height: 0px; margin-top: -10px;">
+							<div id="outerLogContent" class="Log" style="display: none; transition: display 0.5s;">
+								<div class="LogContent">
+									<div id="LogContent" class="innerLogContent"></div>
+								</div>
+							</div>
+						</div>
+						<div id="Changelog" style="opacity: 0; transition: opacity 1s; height: 0px; margin-top: -10px;">
+							<div id="outerChangelogContent" class="Log" style="display: none; transition: display 0.5s;">
+								<div class="LogContent">
+									<div class="innerLogContent" id="ChangelogContent" style="background-color: rgba(51, 51, 51, 0.3); border: 2px solid rgba(51, 51, 51, 1); border-radius: 10px 5px 5px 10px; height: auto !important; max-height: calc(100%);"></div>
+								</div>
+							</div>
+						</div>
+						<div id="Triggers" style="opacity: 0; transition: opacity 1s; height: 0px; margin-top: -10px;">
+							<div id="outerTriggersContent" class="Log" style="display: block; transition: display 0.5s;">
+								<div class="LogContent">
+									<div style="float: right; display: inline-block; width: calc(50%); height: calc(100%); position: relative; background-color: rgba(51, 51, 51, 0.5); padding: 10px; border: 1px solid rgba(51, 51, 51, 1);" id="UOptions">
+										<button id="ANT" class="button">Create new trigger</button>
+									</div>
+									<div id="UploadField" onClick='$("#Uploader").click();' style="width: calc(50%); height: calc(100%); border: 1px solid rgba(51, 51, 51, 1); border-radius: 15px; text-align: center; display: inline-block; cursor: pointer; background: rgba(51, 51, 51, 0.5); padding: 10px;">
+										<div style="display: block; height: 100%;width: 100%;position: relative;justify-content: center;display: flex;align-items: center;" id="UContentDefault">
+											<span style="font-size: 25px; color: rgba(248, 248, 248, 0.5); cursor: pointer;">
+												<i class="fa fa-upload" aria-hidden="true" style="font-size: 40px;"></i>
+												<br>
+												Click to upload your <span class="italic">autoresponse.json</span>!
+											</span>
+										</div>
+										<div style="display: none; height: 100%;width: 100%;position: relative;justify-content: center;display: flex;align-items: center;" id="UContent"></div>
+										<div style="display: none; height: 100%;width: 100%;position: relative;justify-content: center;display: flex;align-items: center;" id="AddNewTrigger">
+											<span class="bold">Trigger name: <input type="text" class="input" id="ANTTriggerName" value="" placeholder="Trigger name" /></span>
+											<br>
+											<span id="ANTUseParams">
+												<i class='fa fa-square-o' aria-hidden='true'></i><span class='bold'>Use <span class='skipbold DSCL'>{params}</span>.</span>
+											</span>
+											<button id="ANTSubmit" class="button">Add Trigger</button>
+										</div>
+									</div>
+									<div id="UARSHidden" style="display: none;">
+										<input class="button" type="file" id="Uploader" value="Upload" accept=".json" onChange='$("#UploadButton").click();'/>
+										<button class="button" id="UploadButton">Upload!</button>
+										<button class="button" id="IUARSButton">Initialize Trigger</button>
+										<span id="RemoveTemp"></span>
+									</div>
+								</div>
+							</div>
+						</div>
+						<button class="ClearButton" onclick="ClearStorage();">Clear Creator</button>
 					</div>
 				</div>
 				<div id="Creator" style="display: block;">
-					<h1>Advanced A.R.S. Builder.</h1>
-					<div class="bold trigger">Echo's Prefix<div class="ReqTip">*<div class="ReqTipText">This field is required. Filled in by default.</div></div>: <input class="prefix bold input" type="text" name="EchoPrefix" id="EchoPrefix" placeholder="." maxlength="3" value="." onchange="SetTrigger();" /></div>
-					<div class="bold trigger">Your Prefix: <input class="prefix bold input" type="text" name="Prefix" id="Prefix" placeholder="." maxlength="3" value="" onchange="SetTrigger();" /></div>
-					<div class="bold trigger">Trigger name<div class="ReqTip">*<span class="ReqTipText">This field is required.</span></div>: <input class="input" type="text" name="TriggerName" id="TriggerName" placeholder="Trigger name" value="" onblur="SetTrigger();" /></div>
-					<div class="bold EnablePar trigger"><input type="text" class="input" name="TriggerNameAfterParams" id="TriggerNameAfterParams" placeholder="Trigger text after {params}" value="" onchange="SetTrigger();" onFocus="SetTrigger();" disabled="true" style="opacity: 0.5;" /><input class="EnableParBox" type="checkbox" name="UseParamsInTrigger" id="UseParamsInTrigger" value="UseParams" onchange="SetTrigger(); localStorage.setItem('UseParams', this.checked);" /><div class="ReqTip">!<span class="ReqTipTextBig">If enabled, <span class="DCSL skipbold">{params}</span> is required in your response. If <span class="DCSL skipbold">{params}</span> isn't found it will be automatically be added at the beginning of the response.</span></div> Enable <span class="DCSL skipbold">{params}</span> in your trigger.</div>
+					<h1>A.R.S. Creator for Echo Discord bot.</h1>
+					<div class="bold trigger">Echo's Prefix<div class="ReqTip">*<div class="ReqTipText">This field is required. Filled in by default.</div></div>: <input class="prefix bold input" type="text" name="EchoPrefix" id="EchoPrefix" placeholder="." maxlength="3" value="." onchange="SetTrigger();" autocomplete="on"/></div>
+					<div class="bold trigger">
+						<select id="UARSList" onChange='$("#IUARSButton").click();'>
+							<option id="UARSDefault">Upload your file!</option>
+						</select>
+					</div>
+					<div class="bold trigger">Trigger name<div class="ReqTip">*<span class="ReqTipText">This field is required.</span></div>: <input class="input" type="text" name="TriggerName" id="TriggerName" placeholder="Trigger name" value="" onblur="SetTrigger();" autocomplete="on"/></div>
+					<div class="bold EnablePar trigger"><input type="text" class="input" name="TriggerNameAfterParams" id="TriggerNameAfterParams" placeholder="Trigger text after {params}" value="" onchange="SetTrigger();" onFocus="SetTrigger();" disabled="true" style="opacity: 0.5;" autocomplete="on" /><input class="EnableParBox" type="checkbox" name="UseParamsInTrigger" id="UseParamsInTrigger" value="UseParams" onchange="SetTrigger(this.checked);" />Enable <span class="DCSL skipbold">{params}</span> in your trigger.</div>
 				<br>
 				<br>
 					<div id="KeysList" class="Keys">
@@ -296,30 +359,6 @@
 				</div>
 			</div>
 		</div>
-		<script>
-			function CheckStyle() {
-				if ($('#body').css('backgroundImage') != "radial-gradient(farthest-side at 10% 0px, rgb(21, 66, 101) 20%, rgb(115, 146, 194))") {
-					$('#body').css('backgroundImage', "radial-gradient(farthest-side at 10% 0px, rgb(21, 66, 101) 20%, rgb(115, 146, 194))");
-					document.getElementById("LogContent").innerHTML += "<span style='font-size: 15px; color: rgba(212, 134, 0, 1);'>&#9888</span>" + localStorage.getItem("DateAndTime") + "Client tried to change the background image of the body.<br>";
-				}
-				if ($('#body').css('backgroundColor') != "rgba(0, 0, 0, 0)") {
-					$('#body').css('backgroundColor', "rgba(0, 0, 0, 0)");
-					document.getElementById("LogContent").innerHTML += "<span style='font-size: 15px; color: rgba(212, 134, 0, 1);'>&#9888</span>" + localStorage.getItem("DateAndTime") + "Client tried to change the background color of the body.<br>";
-				}
-				if ($('#Content').css('backgroundColor') != "rgba(51, 51, 51, 0.498039)") {
-					$('#Content').css('backgroundColor', "rgba(51, 51, 51, 0.498039)");
-					document.getElementById("LogContent").innerHTML += "<span style='font-size: 15px; color: rgba(212, 134, 0, 1);'>&#9888</span>" + localStorage.getItem("DateAndTime") + "Client tried to change the background color of the div with id Content.<br>";
-				}
-				if ($('#KeysList').css('backgroundColor') != "rgba(51, 51, 51, 0.498039)") {
-					$('#KeysList').css('backgroundColor', "rgba(51, 51, 51, 0.498039)");
-					document.getElementById("LogContent").innerHTML += "<span style='font-size: 15px; color: rgba(212, 134, 0, 1);'>&#9888</span>" + localStorage.getItem("DateAndTime") + "Client tried to change the background color of the div with id KeysList.<br>";
-				}
-				if ($('#UsedKeys').css('backgroundColor') != "rgba(0, 0, 0, 0)") {
-					$('#UsedKeys').css('backgroundColor', "rgba(0, 0, 0, 0)");
-					document.getElementById("LogContent").innerHTML += "<span style='font-size: 15px; color: rgba(212, 134, 0, 1);'>&#9888</span>" + localStorage.getItem("DateAndTime") + "Client tried to change the background color of the div with id UsedKeys.<br>";
-				}
-			}
-		</script>
 		<div style="height: 75px;"></div>
 		<div class="footer">
 			<div>
@@ -332,6 +371,9 @@
 		<script src="/js/Searcher.js?v=<?=time();?>" type="text/javascript"></script>
 		<script src="/js/TimeDate.js?v=<?=time();?>" type="text/javascript"></script>
 		<script src="/js/PageShow.js?v=<?=time();?>" type="text/javascript"></script>
+		<script src="/js/Upload.js?v=<?=time();?>" type="text/javascript"></script>
+		<script src="/js/Options.js?v=<?=time();?>" type="text/javascript"></script>
 		<script src="/js/Window.js?v=<?=time();?>" type="text/javascript"></script>
+		<script src="/js/Triggers.js?v=<?=time();?>" type="text/javascript"></script>
 	</body>
 </html>

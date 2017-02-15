@@ -1,27 +1,28 @@
 * {
-    -webkit-box-sizing: border-box;
-    -moz-box-sizing: border-box;
-    box-sizing: border-box
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+	outline: none;
 }
 
 *:before, *:after {
-    -webkit-box-sizing: border-box;
-    -moz-box-sizing: border-box;
-    box-sizing: border-box
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
 }
 
 input:-webkit-autofill {
-    -webkit-box-shadow: 0 0 0px 1000px rgba(51,51,51,1) inset;
+	-webkit-box-shadow: 0 0 0px 1000px rgba(51,51,51,1) inset;
 	-webkit-text-fill-color: rgba(248, 248, 248, 1) !important;
 }
 
 ::-webkit-scrollbar {
-    width: 15px;
+	width: 15px;
 	border-radius: 3px;
 }
  
 ::-webkit-scrollbar-track {
-    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+	-webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
 	height: 50%;
 	border-radius: 3px;
 }
@@ -46,12 +47,12 @@ html {
 	-webkit-tap-highlight-color: transparent
 }
 
-body {
-    background-color: rgba(21, 66, 101, 1) 20%;
-    background-image: radial-gradient(farthest-side ellipse at 10% 0, rgba(21, 66, 101, 1) 20%, rgba(115, 146, 194, 1));
-    background-image: -webkit-radial-gradient(farthest-side ellipse at 10% 0, rgba(21, 66, 101, 1) 20%, rgba(115, 146, 194, 1));
-    background-image: -moz-radial-gradient(10% 0, farthest-side ellipse, rgba(21, 66, 101, 1) 20%, rgba(115, 146, 194, 1));
-    background-attachment: fixed, fixed;
+#body {
+	background-color: transparent;
+	background-image: radial-gradient(farthest-side ellipse at 10% 0, rgba(21, 66, 101, 1) 20%, rgba(115, 146, 194, 1));
+	background-image: -webkit-radial-gradient(farthest-side ellipse at 10% 0, rgba(21, 66, 101, 1) 20%, rgba(115, 146, 194, 1));
+	background-image: -moz-radial-gradient(10% 0, farthest-side ellipse, rgba(21, 66, 101, 1) 20%, rgba(115, 146, 194, 1));
+	background-attachment: fixed, fixed;
 	position: absolute;
 	width: 100%;
 	height: 100%;
@@ -59,23 +60,22 @@ body {
 	font-size: 13px;
 	line-height:1.428571429;
 	color: rgba(248, 248, 248, 1);
-	background-color: rgba(255, 255, 255, 1);
 }
 
 html, body {
 	margin: 0;
 	padding: 0;
-	height: calc(100% - 10%);
-	min-height: calc(100% - 10%);
 }
 
 .footer {
-    background: url(https://echo.xtclabs.net/img/pw_maze_black_2X.png) left top repeat;
-    padding: 20px 0 20px;
-    width: 100%;
-    height: 75px;
-    text-align: center;
-    position: relative;
+	background: url(https://echo.xtclabs.net/img/pw_maze_black_2X.png) left top repeat;
+	padding: 20px 0 20px;
+	width: 100%;
+	height: 75px;
+	text-align: center;
+	position: relative;
+	display: block;
+	box-shadow: 0px -5px 20px 0px rgba(76, 97, 130, 1), inset 0px 20px 40px rgba(0, 0, 0, 0.7)
 }
 
 .link {
@@ -86,6 +86,25 @@ html, body {
 	padding: 0;
 }
 
+input:focus[type="text"] {
+	outline: none;
+}
+
+input[type="file"] input {
+    -webkit-appearance: none;
+    background-color: rgba(78, 145, 206, 1);
+    border: 1px solid rgba(78, 145, 206, 1);
+    color: rgba(248, 248, 248 ,1);
+    box-shadow: 0 1px 2px rgba(0,0,0,0.05), inset 0px -15px 10px -12px rgba(0,0,0,0.05);
+    padding: 3px;
+    margin-bottom: -3px;
+    border-radius: 3px;
+    display: inline-block;
+    position: relative;
+    transition: background-color, border-color 0.3s;
+    -moz-transition: background-color, border-color 0.3s;
+}
+
 button:hover {
 	cursor: pointer;
 }
@@ -94,34 +113,202 @@ p {
 	display: initial;
 }
 
+h1, h2, h3, h4, h5, h6 {
+	text-align: center;
+	width: calc(100%);
+	margin-top: 0px;
+	margin-bottom: calc(2%);
+}
+
+hr {
+	border: 1px solid rgba(51, 51, 51, 1);
+	margin: 0;
+}
+
+li {
+	list-style-position: outside;
+	list-style-type: none;
+	display: list-item;
+}
+
+.trigger {
+	display: inline-block;
+}
+
+.searcher {
+	display: inline-block;
+	border: 1px solid rgba(43, 101, 155, 1);
+	background: rgba(78, 145, 206, 1);
+	border-top-left-radius: 3px;
+	border-bottom-left-radius: 3px;
+	padding: 3px;
+}
+
+.searcher-button {
+	display: inline-block;
+	background-color: rgba(78, 145, 206, 1);
+	border-top-right-radius: 3px;
+	border-bottom-right-radius: 3px;
+	border: 1px solid rgba(43, 101, 155, 1);
+	border-left: none;
+	transition: background-color 0.3s;
+}
+
+.searcher-button:hover {
+	background-color: rgba(43, 101, 155, 1);
+	cursor: pointer;
+}
+
 .alert {
 	border-radius: 10px;
-	width: auto !important;
-	min-width: calc(20% - 10%);
+	width: 20%;
 	background-color: rgba(62, 62, 62, 1);
 	padding: 10px 10px;
 	margin: 5% auto;
 	height: auto !important;
 	min-height: calc(20% - 10%);
 	z-index: 3;
-	text-align: center;
 	position: fixed;
 	left: 50%;
 	transform: translate(-50%);
 }
 
+.creator {
+	min-height: 100%;
+	position: relative;
+	margin: 50px auto -75px;
+}
+
+.SettingsMenu {
+	list-style-type: none;
+	margin: 0px;
+	padding: 0px;
+	overflow: hidden;
+	background-color: rgba(43, 101, 155, 1);
+	border-top-left-radius: 3px;
+	border-top-right-radius: 3px;
+}
+
+.Dropdown {
+	display: inline-block;
+	transition: background-color 0.5s ease;
+}
+
+.Dropdown a {
+	color: rgba(248, 248, 248 ,1);
+}
+
+.Dropdown:hover .DropdownContent {
+	display: block;
+	opacity: 1;
+	transition: opacity 0.5s ease;
+}
+
+.DropdownContent {
+	background-color: rgba(248, 248, 248 ,1);
+	box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.4);
+	display: none;
+	position: absolute;
+	width: calc(10%);
+	opacity: 0;
+	transition: opacity 0.5s ease;
+}
+
+.DropdownContent a {
+	color: rgba(51, 51, 51, 1);
+}
+
+.DropdownMenubutton {
+	color: rgba(51, 51, 51, 1);
+	width: calc(100%);
+	height: 30px;
+	display: block;
+	padding: 7px;
+	text-align: center;
+	transition: background-color 0.5s ease;
+}
+
+.DropdownMenubutton:hover {
+	background-color: rgba(78, 145, 206, 1);
+	color: rgba(248, 248, 248 ,1);
+	transition: background-color 0.5s ease, color 0.5s ease;
+}
+
+.Menubutton {
+	width: calc(10%);
+	height: 30px;
+	display: inline-block;
+	float: left;
+	padding: 7px;
+	text-align: center;
+	transition: background-color 0.5s ease;
+}
+
+.Menubutton:hover {
+	background-color: rgba(78, 145, 206, 1);
+	transition: background-color 0.5s ease;
+}
+
 .content {
-    border-radius: 10px;
-    width: 90%;
-    min-width: 90%;
-    background: rgba(51,51,51,0.5);
-    padding: 20px 50px 20px 50px;
-    margin: 50px auto;
-    height: calc(100% - 75px);
-    z-index: 1;
+	border-radius: 10px;
+	width: 90%;
+	min-width: 90%;
+	background: rgba(51,51,51,0.5);
+	padding: 20px 50px 20px 50px;
+	margin: 50px auto;
+	height: auto !important;
+	z-index: 1;
+	box-shadow: 5px 10px 20px 0px rgba(51, 51, 51, 0.3);
 }
 
 .LogContent {
+	border-bottom-left-radius: 10px;
+	border-bottom-right-radius: 10px;
+	width: 100%;
+	min-width: 100%;
+	background: rgba(51,51,51,0.5);
+	padding: 10px 10px 10px 10px;
+	margin: 10px 10px 10px 0px;
+	height: calc(100%);
+	overflow-y: hidden;
+	text-align: left;
+	border: 1px solid rgba(51, 51, 51, 1);
+}
+
+.outerChangelog {
+	border-radius: 10px;
+	width: 90%;
+	min-width: 90%;
+	background: rgba(51,51,51,0.5);
+	padding: 20px 20px 20px 20px;
+	height: auto !important;
+	min-height: 80%;
+	max-height: 80%;
+	z-index: 2;
+}
+
+.Changelog {
+	width: 100%;
+	overflow-y: scroll;
+	display: block;
+}
+
+.Log {
+	border-bottom-left-radius: 10px;
+	border-bottom-right-radius: 10px;
+	width: 100%;
+	min-width: 100%;
+	height: calc(100%);
+	z-index: 2;
+}
+
+.innerLogContent {
+	width: 99.2%;
+	height: calc(100%);
+	overflow-y: scroll;
+}
+
+.KeyContent {
 	border-radius: 10px;
 	width: 96%;
 	min-width: 96%;
@@ -138,21 +325,7 @@ p {
 	border: 1px solid rgba(51, 51, 51, 1);
 }
 
-.Log {
-	border-radius: 10px;
-	width: 90%;
-	min-width: 90%;
-	background: rgba(51,51,51,0.5);
-	padding: 20px 20px 20px 20px;
-	height: auto !important;
-	min-height: calc(100% - 10%);
-	z-index: 2;
-	position: absolute;
-	left: 5%;
-	transition: all 1s;
-}
-
-.innerLogContent {
+.innerKeyContent {
 	width: 98%;
 	height: auto !important;
 	min-height: 90%;
@@ -160,19 +333,6 @@ p {
 	overflow-y: scroll;
 	position: absolute;
 	padding-bottom: 8px;
-}
-.KeyContent {
-	border-radius: 10px;
-	width: 90%;
-	min-width: 90%;
-	background: rgba(51,51,51,0.5);
-	padding: 20px 50px 20px 50px;
-	margin: 10px auto;
-	height: auto !important;
-	min-height: calc(100% - 30%);
-	z-index: 2;
-	position: absolute;
-	left: 5%;
 }
 
 .KeyContentKey {
@@ -195,7 +355,7 @@ p {
 
 .Keys {
 	border-radius: 10px;
-	width: 100.5%;
+	width: 100%;
 	background: rgba(51,51,51,0.5);
 	padding: 10px 10px 10px 10px;
 	margin: 10px 10px 50px 0px;
@@ -212,29 +372,29 @@ p {
 .innerKeys {
 	width: 100%;
 	height: auto !important;
-	min-height: 30%;
-	max-height: 10%;
+	min-height: calc(40% - 53px);
+	max-height: calc(40% - 53px);
 	overflow-y: scroll;
 	padding-bottom: 8px;
+	margin-top: 8px;
 	background: none;
 }
 
 .KeyListContent {
 	border-radius: 10px;
-	width: 70%;
-	min-width: 70%;
+	width: 90%;
+	min-width: 90%;
 	background: rgba(51,51,51,0.5);
-	padding: 20px 50px 20px 50px;
+	padding: 20px 20px 20px 20px;
 	height: auto !important;
 	min-height: calc(100% - 10%);
 	z-index: 2;
 	position: absolute;
-	left: 15%;
-	transition: all 1s;
+	left: 5%;
 }
 
 .addbutton {
-	width: 80px;
+	min-width: 80px;
 	text-align: center;
 	float: right;
 	-webkit-appearance: none;
@@ -254,8 +414,8 @@ p {
 	text-align: center;
 	float: right;
 	-webkit-appearance: none;
-    background-color: rgba(43, 101, 155, 1);
-    border: 1px solid rgba(43, 101, 155, 1);
+	background-color: rgba(43, 101, 155, 1);
+	border: 1px solid rgba(43, 101, 155, 1);
 	color: rgba(51, 51, 51, 1);
 	box-shadow: 0 1px 2px rgba(0,0,0,0.05), inset 0px -15px 10px -12px rgba(0,0,0,0.05);
 	padding: 3px;
@@ -263,12 +423,21 @@ p {
 	border-radius: 3px;
 	display: inline-block;
 	transition: background-color, border-color 0.3s;
+	cursor: not-allowed;
+}
+
+.Selection {
+	border-radius: 3px;
+	border: 1px solid rgba(51, 51, 51, 1);
+	background: rgba(51,51,51,0.5);
+	color: rgba(248, 248, 248 ,1);
 }
 
 .disabledkey {
 	position: relative;
 	line-height: 1.75;
 	color: rgba(121, 121, 121, 1);
+	cursor: not-allowed;
 }
 
 .disabledkey:before {
@@ -282,7 +451,6 @@ p {
 	display: block;
 }
 .button {
-	float: right;
 	-webkit-appearance: none;
 	background-color: rgba(78, 145, 206, 1);
 	border: 1px solid rgba(78, 145, 206, 1);
@@ -294,6 +462,7 @@ p {
 	display: inline-block;
 	position: relative;
 	transition: background-color, border-color 0.3s;
+	-moz-transition: background-color, border-color 0.3s;
 }
 
 .ClearButton {
@@ -326,8 +495,6 @@ p {
 }
 
 .buttonkeyscontent {
-	right: 30px;
-	top: 30px;
 	-webkit-appearance: none;
 	background-color: rgba(78, 145, 206, 1);
 	border: 1px solid rgba(78, 145, 206, 1);
@@ -337,7 +504,7 @@ p {
 	margin-bottom: -3px;
 	border-radius: 3px;
 	display: inline-block;
-	position: inherit;
+	float: right;
 	transition: background-color, border-color 0.3s;
 }
 
@@ -347,17 +514,14 @@ p {
 	border-color: rgba(43, 101, 155, 1);
 }
 
-h1, h2, h3, h4, h5, h6 {
-	text-align: center;
-	margin: 20px auto 20px auto;
+.version {
+	padding: 5px;
+	display: inline-block;
+	background: rgba(51,51,51,0.5);
+	width: 100%;
+	min-height: 15%;
 }
 
-.DCSL {
-	background-color: rgba(46, 49, 54, 1);
-	padding: 1px 2px;
-	border-radius: 3px;
-	color: rgba(248, 248, 248, 1);
-}
 /* Form CSS content */
 .ReqTip {
 	color: rgba(165, 34, 34, 1);
@@ -368,14 +532,14 @@ h1, h2, h3, h4, h5, h6 {
 
 .ReqTipText {
 	visibility: hidden;
-    width: 150px;
-    background-color: rgba(0, 0, 0, 1);
-    color: #fff;
-    text-align: center;
-    padding: 3px 0;
-    border-radius: 6px;
+	width: 150px;
+	background-color: rgba(0, 0, 0, 1);
+	color: #fff;
+	text-align: center;
+	padding: 3px 0;
+	border-radius: 6px;
 	position: absolute;
-    z-index: 1;
+	z-index: 1;
 	bottom: 100%;
 	left: 50%;
 	margin-left: -75px;
@@ -384,14 +548,14 @@ h1, h2, h3, h4, h5, h6 {
 
 .ReqTipTextBig {
 	visibility: hidden;
-    width: 400px;
-    background-color: rgba(0, 0, 0, 1);
-    color: #fff;
-    text-align: center;
-    padding: 3px 0;
-    border-radius: 6px;
+	width: 400px;
+	background-color: rgba(0, 0, 0, 1);
+	color: #fff;
+	text-align: center;
+	padding: 3px 0;
+	border-radius: 6px;
 	position: absolute;
-    z-index: 1;
+	z-index: 1;
 	bottom: 100%;
 	left: 50%;
 	margin-left: -200px;
@@ -453,61 +617,60 @@ h1, h2, h3, h4, h5, h6 {
 	float: right;
 }
 
+.AddLineBreakBox:before {
+	display: inline-block;
+	content: "";
+	width: 12px;
+	height: 12px;
+	left: 0;
+	bottom: 1px;
+	background: url(../images/checkbox.jpg) 0px 0px;
+	background-size: cover;
+}
+
 .AddLineBreakBox {
-    -webkit-appearance: none;
-    border: 1px solid rgba(202, 206, 206, 1);
-	background-color: rgba(78, 145, 206, 1);
-    box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.7), inset 0px -15px 10px -12px rgba(0, 0, 0, 0.05);
-    padding: 6px;
-    margin-bottom: -3px;
-    border-radius: 3px;
-    display: inline-block;
-    position: relative;
-    float: right;
-    top: -2px;
-	vertical-align: middle;
+	display: inline-block;
+	float: right;
+	margin: 1px 0px 0px 2px;
 }
 
 .AddLineBreakBox:focus {
 	outline: none;
 }
 
+.AddLineBreakBox:checked:before {
+	display: inline-block;
+	content: "";
+	width: 12px;
+	height: 12px;
+	left: 0;
+	bottom: 1px;
+	background: url(../images/checkbox.jpg) 36px 0;
+	background-size: cover;
+}
+
 .AddLineBreakBox:checked {
-	background-color: rgba(78, 145, 206, 1);
-	border: 1px solid rgba(43, 101, 155, 1);
-    box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.7), inset 0px -15px 10px -12px rgba(0, 0, 0, 0.05);
-	color: #99a1a7;
+	margin: 1px 0px 0px 2px;
 }
-
-.AddLineBreakBox:checked:after {
-	content: '\2713';
-	font-size: 12px;
-	position: absolute;
-	top: -2px;
-	left: 2px;
-	color: rgba(255, 255, 255, 1);
-}
-
 
 .AddLineBreakDiv {
-    display: inline-block;
-    padding: 3px;
-    margin: 0px 0px 0px 3px;
-    width: auto;
-    text-align: right;
-    float: right;
-    line-height: normal;
-    background-color: rgba(78, 145, 206, 1);
-    border: 1px solid rgba(78, 145, 206, 1);
-    border-radius: 3px;
-    font-style: normal;
-    font-variant-ligatures: normal;
-    font-variant-caps: normal;
-    font-variant-numeric: normal;
-    font-weight: normal;
-    font-stretch: normal;
-    font-size: 13.3333px;
-    font-family: Arial;
+	display: inline-block;
+	padding: 3px;
+	margin: 0px 3px 0px 0px;
+	width: auto;
+	text-align: right;
+	line-height: normal;
+	background-color: rgba(78, 145, 206, 1);
+	border: 1px solid rgba(78, 145, 206, 1);
+	border-radius: 3px;
+	font-style: normal;
+	font-variant-ligatures: normal;
+	font-variant-caps: normal;
+	font-variant-numeric: normal;
+	font-weight: normal;
+	font-stretch: normal;
+	font-size: 13.3333px;
+	font-family: Arial;
 	transition: background-color, border-color 0.3s;
 }
 
@@ -519,7 +682,7 @@ h1, h2, h3, h4, h5, h6 {
 
 .EnableParBox {
 	-webkit-appearance: none;
-	background-color: none;
+	background-color: rgba(0, 0, 0, 0);
 	border: 1px solid #cacece;
 	box-shadow: 0 1px 2px rgba(0,0,0,0.05), inset 0px -15px 10px -12px rgba(0,0,0,0.05);
 	padding: 6px;
