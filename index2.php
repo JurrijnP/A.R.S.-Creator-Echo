@@ -1,6 +1,6 @@
 <html>
 	<head>
-		<title>A.R.S. Echo Creator</title>
+		<title>A.R.S. Builder for Echo</title>
 		<link rel="icon" href="https://images-ext-1.discordapp.net/eyJ1cmwiOiJodHRwczovL2VjaG8ueHRjbGFicy5uZXQvZmF2aWNvbi5wbmcifQ.e8gkaoxk2ywaxuE7RGln3c2thxA" type="image/x-icon">
 		<link rel="stylesheet" type="text/css" media="all" href="css/arscreator.css?v=<?=time();?>" />
 		<link rel="stylesheet" type="text/css" media="all" href="css/fontstyles.css?v=<?=time();?>" />
@@ -324,11 +324,11 @@
 								</div>
 							</div>
 						</div>
-						<button class="ClearButton" onclick="ClearStorage();">Clear Creator</button>
+						<button class="ClearButton" onclick="ClearStorage();">Clear Builder</button>
 					</div>
 				</div>
 				<div id="Creator" style="display: block;">
-					<h1>A.R.S. Creator for Echo Discord bot.</h1>
+					<h1>A.R.S. Builder for Echo Discord bot.</h1>
 					<div class="bold trigger">Echo's Prefix<div class="ReqTip">*<div class="ReqTipText">This field is required. Filled in by default.</div></div>: <input class="prefix bold input" type="text" name="EchoPrefix" id="EchoPrefix" placeholder="." maxlength="3" value="." onchange="SetTrigger();" autocomplete="on"/></div>
 					<div class="bold trigger">
 						<select id="UARSList" onChange='$("#IUARSButton").click();'>
@@ -363,7 +363,7 @@
 		<div class="footer">
 			<div>
 				<p>2017 © xTech Labs. All Rights Reserved</p><br>
-				 <a class="link" href="https://echo.xtclabs.net/home.php" target=_blank>Echo 2.0</a> by Proxy#0814. <button class="link" onclick="var X = window.pageXOffset; var Y = window.pageYOffset; SmoothScrollToTop(X, Y);">A.R.S. Creator</button> by JurrijnP#1676.
+				 <a class="link" href="https://echo.xtclabs.net/home.php" target=_blank>Echo 2.0</a> by Proxy#0814. <button class="link" onclick="var X = window.pageXOffset; var Y = window.pageYOffset; SmoothScrollToTop(X, Y);">A.R.S. Builder</button> by JurrijnP#1676.
 			</div>
 		</div>
 		<script src="/js/System.js?v=<?=time();?>" type="text/javascript"></script>
